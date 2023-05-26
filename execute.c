@@ -8,17 +8,17 @@
 * @content: line content
 * Return: no return
 */
-int execute(char *content, my_stack_t **stack, unsigned int counter,
+int execute(char *content, stack_t **stack, unsigned int counter,
 FILE *file)
 {
 	instruction_t opList[] = {
-				{"pall", s_pall},
-				{"push", s_push},
-				{"pint", s_pint},
-				{"pop", s_pop},
-				{"swap", s_swap},
-				{"add", s_add},
-				{"nop", s_nop},
+				{"pall", pall},
+				{"push", push},
+				{"pint", pint},
+				{"pop", pop},
+				{"swap", swap},
+				{"add", fadd},
+				{"nop", nop},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
