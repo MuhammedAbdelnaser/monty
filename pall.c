@@ -3,17 +3,20 @@
 /**
  * s_pall - prints the stack
  * @head: stack head
- * @counter: unused
+ * @counter: no used
  * Return: no return
- */
+*/
 void s_pall(my_stack_t **head, unsigned int counter)
 {
-    my_stack_t *h = *head;
-    (void)counter;
+	my_stack_t *h;
+	(void)counter;
 
-    while (h != NULL)
-    {
-        printf("%d\n", h->n);
-        h = h->next;
-    }
+	h = *head;
+	if (h == NULL)
+		return;
+	while (h)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
 }
