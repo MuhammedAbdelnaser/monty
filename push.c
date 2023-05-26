@@ -1,44 +1,44 @@
 #include "monty.h"
+
 /**
- * f_push - add node to the stack
+ * s_push - add node to the stack
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
-void f_push(stack_t **head, unsigned int counter)
+void s_push(my_stack_t **head, unsigned int counter)
 {
-	int i, l = 0, flag = 0;
+	int n, j = 0, flag = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
-			l++;
-		for (; bus.arg[l] != '\0'; l++)
+			j++;
+		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[l] > 57 || bus.arg[l] < 48)
-			{
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 				flag = 1;
-			}
-			}
+		}
 		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", counter);
 			fclose(bus.file);
 			free(bus.content);
 			free_stack(*head);
-			exit(EXIT_FAILURE); }}
+			exit(EXIT_FAILURE);
+		}
+	}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", counter);
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
-		exit(EXIT_FAILURE); }
-	i = atoi(bus.arg);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(bus.arg);
 	if (bus.lifi == 0)
-	{
-		addnode(head, i);
-	}
+		add_node(head, n);
 	else
-	{
-		addqueue(head, i);
-	}
+		add_queue(head, n);
 }
