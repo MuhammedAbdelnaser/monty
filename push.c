@@ -1,48 +1,42 @@
 #include "monty.h"
 
 /**
-* s_push - add node to the stack
-* @head: stack head
-* @counter: line_number
-* Return: no return
+ * push - add node to the stack
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
 */
-void s_push(my_stack_t **head, unsigned int counter)
+void push(stack_t **head, unsigned int counter)
 {
-int n, j = 0, flag = 0;
+	int n, i = 0, is_digit = 0;
 
-if (bus.arg)
-{
-if (bus.arg[0] == '-')
-j++;
-for (; bus.arg[j] != '\0'; j++)
-{
-if (bus.arg[j] > 57 || bus.arg[j] < 48)
-flag = 1;
-}
-if (flag == 1)
-{
-fprintf(stderr, "L%d: usage: push integer\n", counter);
-fclose(bus.file);
-free(bus.content);
-free_stack(*head);
-exit(EXIT_FAILURE);
-}
-}
-else
-{
-fprintf(stderr, "L%d: usage: push integer\n", counter);
-fclose(bus.file);
-free(bus.content);
-free_stack(*head);
-exit(EXIT_FAILURE);
-}
-n = atoi(bus.arg);
-if (bus.lifi == 0)
-{
-add_node(head, n);
-}
-else
-{
-add_queue(head, n);
-}
+	if (bus.arg)
+	{
+		if (bus.arg[0] == '-')
+			i++;
+		for (; bus.arg[i] != '\0'; i++)
+		{
+			if (bus.arg[i] > '9' || bus.arg[i] < '0')
+				is_digit = 1;
+		}
+		if (is_digit == 1)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fclose(bus.file);
+			free(bus.content);
+			free_stack(*head);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(bus.arg);
+	if (bus.lifi == 0)
+		add_node(head, n);
 }
