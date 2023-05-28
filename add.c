@@ -3,12 +3,12 @@
 /**
  * s_add - adds the top two elements of the stack.
  * @head: stack head
- * @counter: line_number
+ * @line_number: line_number
  * Return: no return
 */
-void s_add(my_stack_t **head, unsigned int counter)
+void s_add(stack_t **head, unsigned int line_number)
 {
-	my_stack_t *h;
+	stack_t *h;
 	int len = 0, aux;
 
 	h = *head;
@@ -19,7 +19,7 @@ void s_add(my_stack_t **head, unsigned int counter)
 	}
 	if (len < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
