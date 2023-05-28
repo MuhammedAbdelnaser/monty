@@ -3,10 +3,10 @@
 /**
  * s_push - add node to the stack
  * @head: stack head
- * @counter: line_number
+ * @line_number: line_number
  * Return: no return
 */
-void s_push(my_stack_t **head, unsigned int counter)
+void s_push(stack_t **head, unsigned int line_number)
 {
 	int n, j = 0, flag = 0;
 
@@ -21,7 +21,7 @@ void s_push(my_stack_t **head, unsigned int counter)
 		}
 		if (flag == 1)
 		{
-			fprintf(stderr, "L%d: usage: push integer\n", counter);
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			fclose(bus.file);
 			free(bus.content);
 			free_stack(*head);
@@ -30,7 +30,7 @@ void s_push(my_stack_t **head, unsigned int counter)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", counter);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);

@@ -3,13 +3,13 @@
 /**
  * s_pall - prints the stack
  * @head: stack head
- * @counter: no used
+ * @line_number: no used
  * Return: no return
 */
-void s_pall(my_stack_t **head, unsigned int counter)
+void s_pall(stack_t **head, unsigned int line_number)
 {
-	my_stack_t *h;
-	(void)counter;
+	stack_t *h;
+	(void)line_number;
 
 	h = *head;
 	if (h == NULL)
