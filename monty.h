@@ -1,13 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define _GNU_SOURCE
-
 #include <stdio.h> /* File, fopen, getline, fclose, stderr */
 #include <stdlib.h> /* EXIT_SUCCESS, EXIT_FAILURE, free */
-#include <unistd.h> /* isatty, write, STDIN_FILENO */
-#include <ctype.h> /* isdigit */
-#include <sys/types.h> /* ssize_t */
+
 #include <string.h> /* strtok, strcmp */
 
 /**
@@ -24,7 +20,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} stack_t;
+} my_stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -37,7 +33,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(my_stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
@@ -50,20 +46,17 @@ typedef struct bus_s
 }  bus_t;
 extern bus_t bus;
 
-int execute(char *content, stack_t **head, unsigned int line_number,
+int execute(char *content, my_stack_t **head, unsigned int counter,
 FILE *file);
-void push(stack_t **head, unsigned int line_number);
-void pall(stack_t **head, unsigned int line_number);
-void free_stack(stack_t *head);
-void add_node(stack_t **head, int n);
-void pint(stack_t **head, unsigned int line_number);
-void pop(stack_t **head, unsigned int line_number);
-void swap(stack_t **head, unsigned int line_number);
-void fadd(stack_t **head, unsigned int line_number);
-void nop(stack_t **head, unsigned int line_number);
-void sub(stack_t **head, unsigned int line_number);
-void fdiv(stack_t **head, unsigned int line_number);
-void mul(stack_t **head, unsigned int line_number);
-void mod(stack_t **head, unsigned int line_number);
+void s_push(my_stack_t **head, unsigned int number);
+void s_pall(my_stack_t **head, unsigned int number);
+void s_pint(my_stack_t **head, unsigned int number);
+void s_pop(my_stack_t **head, unsigned int number);
+void s_swap(my_stack_t **head, unsigned int number);
+void s_add(my_stack_t **head, unsigned int number);
+void s_nop(my_stack_t **head, unsigned int number);
+void free_stack(my_stack_t *head);
+void add_node(my_stack_t **head, int n);
+void add_queue(my_stack_t **head, int n);
 
 #endif

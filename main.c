@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
 {
 	ssize_t read_line = 1;
 	size_t size = 0;
-	unsigned int line_number = 0;
-	stack_t *stack = NULL;
+	unsigned int counter = 0;
+	my_stack_t *stack = NULL;
 	FILE *file;
 	char *content;
 
@@ -35,10 +35,10 @@ int main(int argc, char *argv[])
 		content = NULL;
 		read_line = getline(&content, &size, file);
 		bus.content = content;
-		line_number++;
+		counter++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, line_number, file);
+			execute(content, &stack, counter, file);
 		}
 		free(content);
 	}
