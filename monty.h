@@ -20,7 +20,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-} my_stack_t;
+} stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -33,7 +33,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(my_stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
@@ -46,17 +46,17 @@ typedef struct bus_s
 }  bus_t;
 extern bus_t bus;
 
-int execute(char *content, my_stack_t **head, unsigned int counter,
+int execute(char *content, stack_t **head, unsigned int line_number,
 FILE *file);
-void s_push(my_stack_t **head, unsigned int number);
-void s_pall(my_stack_t **head, unsigned int number);
-void s_pint(my_stack_t **head, unsigned int number);
-void s_pop(my_stack_t **head, unsigned int number);
-void s_swap(my_stack_t **head, unsigned int number);
-void s_add(my_stack_t **head, unsigned int number);
-void s_nop(my_stack_t **head, unsigned int number);
-void free_stack(my_stack_t *head);
-void add_node(my_stack_t **head, int n);
-void add_queue(my_stack_t **head, int n);
+void s_push(stack_t **head, unsigned int number);
+void s_pall(stack_t **head, unsigned int number);
+void s_pint(stack_t **head, unsigned int number);
+void s_pop(stack_t **head, unsigned int number);
+void s_swap(stack_t **head, unsigned int number);
+void s_add(stack_t **head, unsigned int number);
+void s_nop(stack_t **head, unsigned int number);
+void free_stack(stack_t *head);
+void add_node(stack_t **head, int n);
+void add_queue(stack_t **head, int n);
 
 #endif
