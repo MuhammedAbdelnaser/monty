@@ -3,12 +3,12 @@
 /**
 * execute - execute the monty code
 * @stack: head linked list - stack
-* @counter: line_counter
+* @line_number: line_line_number
 * @file: pointer to monty file
 * @content: line content
 * Return: no return
 */
-int execute(char *content, my_stack_t **stack, unsigned int counter,
+int execute(char *content, stack_t **stack, unsigned int line_number,
 FILE *file)
 {
 	instruction_t opList[] = {
@@ -32,14 +32,14 @@ FILE *file)
 	while (opList[i].opcode && op)
 	{
 		if (strcmp(op, opList[i].opcode) == 0)
-		{	opList[i].f(stack, counter);
+		{	opList[i].f(stack, line_number);
 			return (0);
 		}
 		i++;
 	}
 	if (op && opList[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
 		fclose(file);
 		free(content);
 		free_stack(*stack);
