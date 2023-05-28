@@ -8,16 +8,20 @@
 */
 void s_push(stack_t **head, unsigned int line_number)
 {
-	int n, j = 0, flag = 0;
+	int n, i = 0, flag = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
-			j++;
-		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[j] > 57 || bus.arg[j] < 48)
+			i++;
+		}
+		for (; bus.arg[i] != '\0'; i++)
+		{
+			if (bus.arg[i] > 57 || bus.arg[i] < 48)
+			{
 				flag = 1;
+			}
 		}
 		if (flag == 1)
 		{
@@ -38,7 +42,11 @@ void s_push(stack_t **head, unsigned int line_number)
 	}
 	n = atoi(bus.arg);
 	if (bus.lifi == 0)
+	{
 		add_node(head, n);
+	}
 	else
+	{
 		add_queue(head, n);
+	}
 }
