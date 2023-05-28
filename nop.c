@@ -3,11 +3,11 @@
 /**
   *s_nop- nothing
   *@head: stack head
-  *@counter: line_number
+  *@line_number: line_number
   *Return: no return
  */
-void s_nop(my_stack_t **head, unsigned int counter)
+void s_nop(stack_t **head, unsigned int line_number)
 {
-	(void) counter;
+	(void) line_number;
 	(void) head;
 }
