@@ -8,17 +8,17 @@
 */
 void s_push(stack_t **head, unsigned int line_number)
 {
-	int n, i = 0, flag = 0;
+	int n, j = 0, flag = 0;
 
 	if (bus.arg)
 	{
 		if (bus.arg[0] == '-')
 		{
-			i++;
+			j++;
 		}
-		for (; bus.arg[i] != '\0'; i++)
+		for (; bus.arg[j] != '\0'; j++)
 		{
-			if (bus.arg[i] > 57 || bus.arg[i] < 48)
+			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 			{
 				flag = 1;
 			}
