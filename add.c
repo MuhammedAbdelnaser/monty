@@ -8,13 +8,13 @@
 */
 void s_add(stack_t **head, unsigned int line_number)
 {
-	stack_t *h;
+	stack_t *hd;
 	int len = 0, aux;
 
-	h = *head;
-	while (h)
+	hd = *head;
+	while (hd)
 	{
-		h = h->next;
+		hd = hd->next;
 		len++;
 	}
 	if (len < 2)
@@ -25,9 +25,9 @@ void s_add(stack_t **head, unsigned int line_number)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	aux = h->n + h->next->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
+	hd = *head;
+	aux = hd->n + hd->next->n;
+	hd->next->n = aux;
+	*head = hd->next;
+	free(hd);
 }
