@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 	FILE *file;
-	char *content;
+	char *cont;
 
 	if (argc != 2)
 	{
@@ -32,15 +32,15 @@ int main(int argc, char *argv[])
 
 	while (read_line > 0)
 	{
-		content = NULL;
-		read_line = getline(&content, &size, file);
-		bus.content = content;
+		cont = NULL;
+		read_line = getline(&cont, &size, file);
+		bus.cont = cont;
 		line_number++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, line_number, file);
+			execute(cont, &stack, line_number, file);
 		}
-		free(content);
+		free(cont);
 	}
 	free_stack(stack);
 	fclose(file);
